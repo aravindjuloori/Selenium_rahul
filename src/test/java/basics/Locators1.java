@@ -24,6 +24,7 @@ public class Locators1 {
 		 * String inputusername=username.getDomAttribute("placeholder");
 		 * System.out.println(inputusername);
 		 */
+		
 
 		driver.findElement(By.id("inputUsername")).sendKeys("Aravind"); // sending values using id locator
 
@@ -45,7 +46,7 @@ public class Locators1 {
 
 		driver.findElement(By.linkText("Forgot your password?")).click(); // using linktext
 
-		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("john"); // xpath
+		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("john"); //1.xpath
 
 		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@gmail.com"); // CSS 3rd way
 		
@@ -59,9 +60,19 @@ public class Locators1 {
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();   //using css selector
 		
 		
-		String ErrorMessage=driver.findElement(By.cssSelector("form p")).getText();
+		String ErrorMessage=driver.findElement(By.cssSelector("form p")).getText();  //CSS with parent and child traverse mechanism
 		System.out.println(ErrorMessage);
-		driver.quit();
+		
+		driver.findElement(By.xpath("//div[@class='forgot-pwd-btn-conainer']/button[1]")).click();  //using //parenttage/childtag
+		
+		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("Aravind");  //CSS selector #id
+		
+		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");  //Css regular expression
+		driver.findElement(By.id("chkboxOne")).click();
+		
+		driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();  //Xpath regular expression
+		
+		//driver.quit();
 
 	}
 
