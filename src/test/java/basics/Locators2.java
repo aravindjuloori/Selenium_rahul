@@ -9,26 +9,50 @@ import org.testng.Assert;
 
 public class Locators2 {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException  {
 		String name="Aravind";
+//		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		
+//		WebDriver driver=new FirefoxDriver();
+		
+//		WebDriver driver=new EdgeDriver();
+
+		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.findElement(By.id("inputUsername")).sendKeys(name);
-		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy"); 
-		driver.findElement(By.id("chkboxOne")).click();
+		String password=getPassword(driver);
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		
-		driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
+		driver.findElement(By.id("inputUsername")).sendKeys(name); // Locating the element by #id attribute
+		driver.findElement(By.name("inputPassword")).sendKeys(password); // Locating the element by $name attribute
+		driver.findElement(By.className("signInBtn")).click(); // Locating the element by #className attribute
 		Thread.sleep(2000);
-		String ActualText=driver.findElement(By.tagName("p")).getText();
-		Assert.assertEquals(ActualText, "You are successfully logged in.");
+		System.out.println(driver.findElement(By.tagName("p")).getText());  //using tagName
 		
-			String ValidateUsername=driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText();
-			Assert.assertEquals(ValidateUsername,"Hello "+name+",");
-			
-			driver.findElement(By.xpath("//*[text()='Log Out']")).click();
-
+		Assert.assertEquals(driver.findElement(By.tagName("p")).getText(),"You are successfully logged in.");
+		Assert.assertEquals(driver.findElement(By.cssSelector("div[class='login-container'] h2")).getText(), "Hello "+name+",");
+		
+		driver.findElement(By.xpath("//button[text()='Log Out']")).click();
+		driver.quit();
+		
+	}
+	
+	public static String getPassword(WebDriver driver) throws InterruptedException {
+		driver.get("https://rahulshettyacademy.com/locatorspractice/");
+		driver.findElement(By.linkText("Forgot your password?")).click(); // Using the locator linkText
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();   //css with tagname and class name
+		String passwordText=driver.findElement(By.cssSelector("form p")).getText();   //css with parenttag childtag
+		String passwordArray[]=passwordText.split("'");
+		System.out.println(passwordArray[0]);
+		System.out.println(passwordArray[1]);
+		
+		String passwordArray2[]=passwordArray[1].split("'");
+		
+		String password=passwordArray2[0];
+		return password;
+		
 	}
 
 }

@@ -1,55 +1,61 @@
 package basics;
 
-import java.util.Arrays;
-
 public class CoreJavaBrushup {
 
 	public static void main(String[] args) {
-		boolean mycard=true;
-		int mynum=5;
-		String name="Aravind";
-		double d=12.5;
-		char ch='A';
-		
-		System.out.println(mynum+" The value stored in myNum variable");
-		System.out.println(name);
-		
-		//Declaring an array
-		int arr[]=new int[5];
-		arr[0]=100;
-		arr[1]=200;
-		arr[2]=300;
-		arr[3]=400;
-		arr[4]=500;
-		
-		System.out.println(arr[0]);
-		System.out.println(Arrays.toString(arr));
-		
-		int arr2[]= {1,2,3,4,5};
-		
-		//for loop
-		
-		for(int i=0;i<arr.length;i++) {
-			System.out.println(arr[i]);
-		}
-		
-		//for each loop enhanced for loop
-		for(int value:arr2) {
-			System.out.println(value);
-		}
-		
-		//String array
-		String name1[]= {"Aravind","Bhavani","Maanvitha","Mokshith"};
-		
-		for(int i=0;i<name1.length;i++) {
-			System.out.println(name1[i]);
-		}
-		for(String value1:name1) {
-			System.out.println(value1);
-		}
-	
-		
 
+		int myNum = 5;
+		String website="RahulShetty academy";
+		char ch='A';
+		double d=4.15;
+//		float f=1.55f;
+		boolean status=true;
+		
+		
+		System.out.println("Integer value is :"+myNum);
+		System.out.println("Rahul shetty website is :" +website);
+		System.out.println("Char value is: "+ch);
+		System.out.println("Double value is : "+d);
+		
+		
+		
+		//Arrays -- It is used to store multiple values in single variable
+		
+		int arr[]=new int[5];
+		
+		arr[0]=101;
+		arr[1]=102;
+		arr[2]=103;
+		arr[3]=104;
+		arr[4]=105;
+		
+		System.out.println("Values in the array list are :" +arr[0]);
+		
+		int arr2[]= {1,3,4,5,6};
+		
+		
+		/*
+		 * for(int i=0;i<arr.length;i++) { 
+		 * System.out.println(arr[i]); 
+		 * }
+		 */
+		
+		for(int i=0;i<arr2.length;i++) {
+			System.out.println(arr2[i]);
+		}
+		
+		String name[]= {"Aravind","Bhavani","Maanvitha","Mokshith"};
+		//classic for loop
+		for(int i=0;i<name.length;i++) {
+			System.out.println(name[i]);
+		}
+		
+		System.out.println("***************Printing using for each loop***************");
+		//Enhanced for each loop
+		
+		for(String s:name) {
+			System.out.println(s);
+		}
 	}
 
 }
