@@ -27,6 +27,19 @@ public class CheckBoxDemo {
 
 		
 		System.out.println(driver.findElements(By.xpath("//input[@type='checkbox']")).size());
+		
+		//selecting the roundtrip option
+
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		
+		System.out.println(driver.findElement(By.id("Div1")).getDomAttribute("style"));
+		if(driver.findElement(By.id("Div1")).getDomAttribute("style").contains("1")) {
+			System.out.println("Its enabled");
+			Assert.assertTrue(true);
+		}
+		else {
+			Assert.assertTrue(false);
+		}
 	}
 
 }
