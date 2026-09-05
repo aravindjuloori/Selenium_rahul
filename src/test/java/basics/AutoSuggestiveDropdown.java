@@ -16,17 +16,17 @@ public class AutoSuggestiveDropdown {
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		
+
 		driver.findElement(By.id("autosuggest")).sendKeys("Ind");
-		List<WebElement> options=driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
-		
-		for(WebElement option:options) {
-			if(option.getText().equalsIgnoreCase("India")) {
-				
+		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+
+		for (WebElement option : options) {
+			if (option.getText().equalsIgnoreCase("India")) {
+
 				option.click();
 				break;
 			}
-			
+
 		}
 	}
 

@@ -16,24 +16,22 @@ public class UpdatedDropdown {
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		
 
-		
 		driver.findElement(By.id("divpaxinfo")).click();
 
 		/*
 		 * for (int i = 1; i < 5; i++) {
 		 * driver.findElement(By.id("hrefIncAdt")).click(); }
 		 */
-		int i=1;
-		while(i<5) {
+		int i = 1;
+		while (i < 5) {
 			driver.findElement(By.id("hrefIncAdt")).click();
 			i++;
 		}
 		driver.findElement(By.id("btnclosepaxoption")).click();
 		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
-		
+
 	}
 
 }

@@ -29,38 +29,35 @@ public class E2E {
 
 		driver.findElement(By.cssSelector("a.ui-state-default.ui-state-active")).click();
 
-	    		System.out.println(driver.findElement(By.id("Div1")).getDomAttribute("style"));
-    		if(driver.findElement(By.id("Div1")).getDomAttribute("style").contains("0.5")) {
-    			System.out.println("Its disabled");
-    			Assert.assertTrue(true);
-    		}
-    		else {
-    			Assert.assertTrue(false);
-    		}
-    		
-    		
-    		 driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
-       		Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
-    		
-    		driver.findElement(By.id("divpaxinfo")).click();
-  		  for (int i = 1; i < 5; i++) {
-  		  driver.findElement(By.id("hrefIncAdt")).click(); 
-  		  
-  		  }
-  		  driver.findElement(By.id("btnclosepaxoption")).click();
-  		  System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
-  			Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
-  		 
-  			WebElement currencydropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
-  			Select dropdown = new Select(currencydropdown);
-  			dropdown.selectByValue("USD");
-  			System.out.println(dropdown.getFirstSelectedOption().getText());
-  			
-  			
-  			  driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
-  			//	driver.findElement(By.cssSelector("input[value='Search']")).click();
-  			//  driver.findElement(By.xpath("//input[@value='Search']")).click();
-     		//	driver.findElement(By.name("ctl00$mainContent$btn_FindFlights")).click();
+		System.out.println(driver.findElement(By.id("Div1")).getDomAttribute("style"));
+		if (driver.findElement(By.id("Div1")).getDomAttribute("style").contains("0.5")) {
+			System.out.println("Its disabled");
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertTrue(false);
+		}
+
+		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
+		Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
+
+		driver.findElement(By.id("divpaxinfo")).click();
+		for (int i = 1; i < 5; i++) {
+			driver.findElement(By.id("hrefIncAdt")).click();
+
+		}
+		driver.findElement(By.id("btnclosepaxoption")).click();
+		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
+		Assert.assertEquals(driver.findElement(By.id("divpaxinfo")).getText(), "5 Adult");
+
+		WebElement currencydropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
+		Select dropdown = new Select(currencydropdown);
+		dropdown.selectByValue("USD");
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+
+		driver.findElement(By.cssSelector("#ctl00_mainContent_btn_FindFlights")).click();
+		// driver.findElement(By.cssSelector("input[value='Search']")).click();
+		// driver.findElement(By.xpath("//input[@value='Search']")).click();
+		// driver.findElement(By.name("ctl00$mainContent$btn_FindFlights")).click();
 	}
 
 }
